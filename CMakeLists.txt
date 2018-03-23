@@ -106,8 +106,6 @@ ELSE(WORDS_BIGENDIAN)
  SET(WORDS_BIGENDIAN_S "/* #undef WORDS_BIGENDIAN */")
 ENDIF(WORDS_BIGENDIAN)
 #
-OPTION(BUILD_STATIC_LIBS
- "Build MNG static library and link executables against it." ON)
 OPTION(BUILD_SHARED_LIBS
  "Build MNG shared library and link executables against it." ON)
 #
@@ -378,7 +376,7 @@ libmng_zlib.c
 )
 #
 #------------------ STATIC ---------------------
-IF(BUILD_STATIC_LIBS)
+IF(NOT BUILD_SHARED_LIBS)
  ADD_LIBRARY(${MNG_LIBRARY_NAME} STATIC
   ${TARGET_FILES})
  #
@@ -417,7 +415,7 @@ IF(BUILD_STATIC_LIBS)
    LIBRARY DESTINATION ${MNG_INSTALL_LIB_DIR} COMPONENT Libraries
    ARCHIVE DESTINATION ${MNG_INSTALL_LIB_DIR} COMPONENT Libraries
  )
-ENDIF(BUILD_STATIC_LIBS)
+ENDIF()
 #---------------- SHARED -------------
 IF(BUILD_SHARED_LIBS)
 
