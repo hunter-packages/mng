@@ -1,7 +1,7 @@
 #libmng-VERSION
 CMAKE_MINIMUM_REQUIRED(VERSION 3.2)
 
-include("cmake/HunterGate.cmake")
+include("CMake/HunterGate.cmake")
 HunterGate(
     URL "https://github.com/ruslo/hunter/archive/v0.20.26.tar.gz"
     SHA1 "04c42ba5194ca4e30d97f0e30adbb231facda048"
