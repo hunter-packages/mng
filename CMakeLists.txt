@@ -506,3 +506,24 @@ INSTALL(FILES
  README.contrib README.examples README.packaging CHANGES LICENSE
  DESTINATION ${MNG_INSTALL_DOC_DIR} )
 #--- fin
+
+include(CMakePackageConfigHelpers)
+
+set(
+    project_config
+    "${CMAKE_CURRENT_BINARY_DIR}/generated/${PROJECT_NAME}Config.cmake"
+)
+
+# Use variables:
+#   * TARGETS_EXPORT_NAME
+#   * PROJECT_NAME
+configure_package_config_file(
+    "cmake/template/Config.cmake.in"
+    "${project_config}"
+    INSTALL_DESTINATION "${MNG_INSTALL_PACKAGE_DIR}"
+)
+
+install(
+    FILES "${project_config}"
+    DESTINATION "${MNG_INSTALL_PACKAGE_DIR}"
+)
