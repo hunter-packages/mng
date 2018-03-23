@@ -107,6 +107,9 @@ OPTION(BUILD_SHARED_LIBS
 OPTION(BUILD_MAN
  "Build MAN pages" OFF)
 #
+OPTION(BUILD_DOC
+ "Build documentation" OFF)
+#
 OPTION(WITH_LCMS2
  "Build MNG library with liblcms version 2" ON)
 #
@@ -292,7 +295,9 @@ INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})
 FIND_PACKAGE(MAN)
 FIND_PACKAGE(GZIP)
 #
-ADD_SUBDIRECTORY(doc)
+if(BUILD_DOC)
+  ADD_SUBDIRECTORY(doc)
+endif()
 #
 #---------------------------------------------------
 #
