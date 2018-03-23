@@ -518,7 +518,7 @@ set(
 #   * TARGETS_EXPORT_NAME
 #   * PROJECT_NAME
 configure_package_config_file(
-    "cmake/template/Config.cmake.in"
+    "CMake/template/Config.cmake.in"
     "${project_config}"
     INSTALL_DESTINATION "${MNG_INSTALL_PACKAGE_DIR}"
 )
